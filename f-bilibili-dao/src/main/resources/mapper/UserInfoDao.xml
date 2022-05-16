@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.f.bilibili.dao.UserInfoDao">
+
+    <resultMap id="BaseResultMap" type="com.f.bilibili.domain.UserInfo">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="userId" column="userId" jdbcType="BIGINT"/>
+        <result property="nick" column="nick" jdbcType="VARCHAR"/>
+        <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+        <result property="sign" column="sign" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="VARCHAR"/>
+        <result property="birth" column="birth" jdbcType="VARCHAR"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,userId,nick,
+        avatar,sign,gender,
+        birth,createTime,updateTime
+    </sql>
+    <insert id="addUserInfo">
+        insert into t_user_info
+        (userId,
+         nick,
+         avatar,
+         sign,
+         gender,
+         birth,
+         createTime)
+        values (#{userId},
+                #{nick},
+                #{avatar},
+                #{sign},
+                #{gender},
+                #{birth},
+                #{createTime})
+
+    </insert>
+    <update id="updateUserInfo">
+        update
+        t_user_info
+        set
+        <if test="nick != null and nick != '' ">
+            nick = #{nick},
+        </if>
+        <if test="avatar != null">
+            avatar = #{avatar},
+        </if>
+        <if test="sign != null">
+            sign = #{sign},
+        </if>
+        <if test="gender != null">
+            gender = #{gender},
+        </if>
+        <if test="birth != null">
+            birth = #{birth},
+        </if>
+        updateTime = #{updateTime}
+        where
+        userId = #{userId}
+    </update>
+    <select id="getUserInfoUserId" resultType="com.f.bilibili.domain.UserInfo">
+        select *
+        from t_user_info
+        where userId = #{id}
+    </select>
+    <select id="getUserInfoByUserIds" resultType="com.f.bilibili.domain.UserInfo">
+        select
+        *
+        from
+        t_user_info
+        where
+        1=1
+        <if test="userIdList != null and userIdList.size > 0">
+            and userId in
+            <foreach collection="userIdList" item="userId" index="index" open="(" close=")" separator=",">
+                #{userId}
+            </foreach>
+        </if>
+    </select>
+    <select id="pageCountUserInfos" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(1)
+        from t_user_info
+        where 1=1
+        <if test="nick != null and nick != '' ">
+            and nick like '%${nick}%'
+        </if>
+    </select>
+    <select id="pageListUserInfos" resultType="com.f.bilibili.domain.UserInfo">
+        select *
+        from t_user_info where 1 =1
+        <if test="nick != null and nick != ''">
+            and nick like '%${nick}%'
+        </if>
+        order by id desc
+        limit #{start} , #{limit}
+    </select>
+</mapper>

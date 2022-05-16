@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TemplatesSettings">
+    <option name="templateConfigs">
+      <TemplateContext>
+        <option name="generateConfig">
+          <GenerateConfig>
+            <option name="annotationType" value="NONE" />
+            <option name="basePackage" value="com.f.bilibili" />
+            <option name="basePath" value="src/main/java" />
+            <option name="classNameStrategy" value="camel" />
+            <option name="encoding" value="UTF-8" />
+            <option name="extraClassSuffix" value="" />
+            <option name="ignoreFieldPrefix" value="" />
+            <option name="ignoreFieldSuffix" value="" />
+            <option name="ignoreTablePrefix" value="t_" />
+            <option name="ignoreTableSuffix" value="" />
+            <option name="moduleName" value="f-bilibili-dao" />
+            <option name="modulePath" value="$PROJECT_DIR$/f-bilibili-dao" />
+            <option name="moduleUIInfoList">
+              <list>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configName" value="mapperInterface" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Mapper" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$/f-bilibili-dao" />
+                  <option name="packageName" value="com.f.bilibili.dao" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="src/main/resources" />
+                  <option name="configName" value="mapperXml" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Mapper" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
+                  <option name="modulePath" value="$PROJECT_DIR$/f-bilibili-dao" />
+                  <option name="packageName" value="mapper" />
+                </ModuleInfoGo>
+              </list>
+            </option>
+            <option name="needToStringHashcodeEquals" value="true" />
+            <option name="needsComment" value="true" />
+            <option name="relativePackage" value="domain" />
+            <option name="superClass" value="" />
+            <option name="tableUIInfoList">
+              <list>
+                <TableUIInfo>
+                  <option name="className" value="AuthElementOperation" />
+                  <option name="tableName" value="t_auth_element_operation" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="AuthMenu" />
+                  <option name="tableName" value="t_auth_menu" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="AuthRole" />
+                  <option name="tableName" value="t_auth_role" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="AuthRoleElementOperation" />
+                  <option name="tableName" value="t_auth_role_element_operation" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="AuthRoleMenu" />
+                  <option name="tableName" value="t_auth_role_menu" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="UserRole" />
+                  <option name="tableName" value="t_user_role" />
+                </TableUIInfo>
+              </list>
+            </option>
+            <option name="templatesName" value="default-empty" />
+            <option name="useActualColumnAnnotationInject" value="true" />
+            <option name="useActualColumns" value="true" />
+            <option name="useLombokPlugin" value="true" />
+          </GenerateConfig>
+        </option>
+        <option name="moduleName" value="f-bilibili-dao" />
+        <option name="projectPath" value="$PROJECT_DIR$" />
+        <option name="templateName" value="default-empty" />
+      </TemplateContext>
+    </option>
+  </component>
+</project>
