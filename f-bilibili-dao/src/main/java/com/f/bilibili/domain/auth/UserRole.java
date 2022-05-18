@@ -7,12 +7,13 @@ import java.util.Date;
 
 /**
  * 用户角色关联表
+ *
  * @TableName t_user_role
  */
 @Data
 public class UserRole implements Serializable {
     /**
-     * 
+     *
      */
     private Long id;
 
@@ -31,4 +32,12 @@ public class UserRole implements Serializable {
      */
     private Date createTime;
 
+    /**
+     * 冗余字段 角色名称
+     */
+    private String roleName;
+    /**
+     * 冗余字段 角色代码
+     */
+    private String code;
 }

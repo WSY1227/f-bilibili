@@ -1,5 +1,7 @@
 package com.f.bilibili.domain.auth;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -8,25 +10,14 @@ import java.util.List;
  * @author: XU
  * @date: 2022年05月16日 23:44
  **/
-
+@Data
 public class UserAuthorities {
+    /**
+     * 色与元素操作关联表
+     */
     List<AuthRoleElementOperation> roleElementOperationList;
-
+    /**
+     * 角色页面菜单关联表
+     */
     List<AuthRoleMenu> roleMenuList;
-
-    public List<AuthRoleElementOperation> getRoleElementOperationList() {
-        return roleElementOperationList;
-    }
-
-    public void setRoleElementOperationList(List<AuthRoleElementOperation> roleElementOperationList) {
-        this.roleElementOperationList = roleElementOperationList;
-    }
-
-    public List<AuthRoleMenu> getRoleMenuList() {
-        return roleMenuList;
-    }
-
-    public void setRoleMenuList(List<AuthRoleMenu> roleMenuList) {
-        this.roleMenuList = roleMenuList;
-    }
 }
