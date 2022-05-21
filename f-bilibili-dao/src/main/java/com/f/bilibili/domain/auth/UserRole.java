@@ -35,7 +35,7 @@ public class UserRole implements Serializable {
     /**
      * 冗余字段 角色名称
      */
-    private String roleName;
+    private String name;
     /**
      * 冗余字段 角色代码
      */

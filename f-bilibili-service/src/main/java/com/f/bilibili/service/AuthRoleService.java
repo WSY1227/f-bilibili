@@ -1,5 +1,7 @@
 package com.f.bilibili.service;
 
+import com.f.bilibili.dao.AuthRoleDao;
+import com.f.bilibili.domain.auth.AuthRole;
 import com.f.bilibili.domain.auth.AuthRoleElementOperation;
 import com.f.bilibili.domain.auth.AuthRoleMenu;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class AuthRoleService {
     private AuthRoleElementOperationService authRoleElementOperationService;
     @Autowired
     private AuthRoleMenuService authRoleMenuService;
+    @Autowired
+    private AuthRoleDao authRoleDao;
 
     /**
      * 通过角色id集合获取操作权限列表
@@ -33,5 +37,12 @@ public class AuthRoleService {
      */
     public List<AuthRoleMenu> getRoleMenuList(Set<Long> roleIdSet) {
         return authRoleMenuService.getRoleMenuList(roleIdSet);
+    }
+
+    /**
+     * 通过角色编码获取角色信息
+     */
+    public AuthRole getRoleByCode(String code) {
+        return authRoleDao.getRoleByCode(code);
     }
 }

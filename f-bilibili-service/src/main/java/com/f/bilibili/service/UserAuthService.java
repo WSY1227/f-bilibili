@@ -1,9 +1,7 @@
 package com.f.bilibili.service;
 
-import com.f.bilibili.domain.auth.AuthRoleElementOperation;
-import com.f.bilibili.domain.auth.AuthRoleMenu;
-import com.f.bilibili.domain.auth.UserAuthorities;
-import com.f.bilibili.domain.auth.UserRole;
+import com.f.bilibili.domain.auth.*;
+import com.f.bilibili.domain.constant.AuthRoleConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,5 +40,16 @@ public class UserAuthService {
         userAuthorities.setRoleElementOperationList(roleElementOperationList);
         userAuthorities.setRoleMenuList(roleMenuList);
         return userAuthorities;
+    }
+
+    public void addUserDefaultRole(Long id) {
+        UserRole userRole = new UserRole();
+        /**获取Lv0的角色信息*/
+        AuthRole role = authRoleService.getRoleByCode(AuthRoleConstant.ROLE_LV0);
+        /**添加用户角色关联信息*/
+        userRole.setUserId(id);
+        userRole.setRoleId(role.getId());
+        /**新增用户角色*/
+        userRoleService.addUserRole(userRole);
     }
 }

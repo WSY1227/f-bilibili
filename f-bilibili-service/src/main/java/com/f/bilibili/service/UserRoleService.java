@@ -5,6 +5,7 @@ import com.f.bilibili.domain.auth.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ import java.util.List;
 public class UserRoleService {
     @Autowired
     private UserRoleDao userRoleDao;
+
     /**
      * 通过用户id获取用户角色列表
      *
@@ -25,5 +27,14 @@ public class UserRoleService {
      */
     public List<UserRole> getUserRoleByUserId(Long userId) {
         return userRoleDao.getUserRoleByUserId(userId);
+    }
+
+    /**
+     * 添加用户角色
+     */
+    public void addUserRole(UserRole userRole) {
+        /**设置创建时间*/
+        userRole.setCreateTime(new Date());
+        userRoleDao.addUserRole(userRole);
     }
 }

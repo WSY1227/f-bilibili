@@ -31,7 +31,7 @@ public class UserAuthApi {
         Long userId = userSupport.getCurrentUserId();
         /**获取用户权限*/
         UserAuthorities userAuthorities = userAuthService.getUserAuthorities(userId);
-        /**向前端返回权限*/
+        /**向前端返回用户权限*/
         return new JsonResponse<>(userAuthorities);
     }
 

@@ -17,6 +17,11 @@ public interface UserRoleDao {
      * 通过用户id获取用户角色信息
      */
     List<UserRole> getUserRoleByUserId(Long userId);
+
+    /**
+     * 添加用户角色信息
+     */
+    Integer addUserRole(UserRole userRole);
 }
 
 

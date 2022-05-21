@@ -16,10 +16,18 @@
         ,userId,roleId,
         createTime
     </sql>
+    <insert id="addUserRole">
+        insert into t_user_role(userId,
+                                roleId,
+                                createTime)
+        values (#{userId},
+                #{roleId},
+                #{createTime})
+    </insert>
     <select id="getUserRoleByUserId" resultType="com.f.bilibili.domain.auth.UserRole">
         select ur.*,
-               ar.Name,
-               ar.Code
+               ar.name,
+               ar.code
         from t_user_role ur
                  left join t_auth_role ar on ur.roleId = ar.id
         where ur.userId = #{userId}

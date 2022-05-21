@@ -3,6 +3,9 @@ package com.f.bilibili.api;
 import com.f.bilibili.api.support.UserSupport;
 import com.f.bilibili.domain.JsonResponse;
 import com.f.bilibili.domain.UserMoments;
+import com.f.bilibili.domain.annotation.ApiLimitedRole;
+import com.f.bilibili.domain.annotation.DataLimited;
+import com.f.bilibili.domain.constant.AuthRoleConstant;
 import com.f.bilibili.service.UserMomentsService;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
@@ -31,6 +34,8 @@ public class UserMomentsApi {
     /**
      * 新增用户动态
      */
+    @ApiLimitedRole(limitedRoleCodeList = {AuthRoleConstant.ROLE_LV0})//代表角色代码为lv0的用户不能访问
+    @DataLimited
     @PostMapping("/user-moments")
     public JsonResponse<String> addUserMoments(@RequestBody UserMoments userMoments) throws MQBrokerException, RemotingException, InterruptedException, MQClientException {
         /**获取当前用户id*/

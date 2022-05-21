@@ -5,15 +5,21 @@
 <mapper namespace="com.f.bilibili.dao.AuthRoleDao">
 
     <resultMap id="BaseResultMap" type="com.f.bilibili.domain.auth.AuthRole">
-            <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="code" column="code" jdbcType="VARCHAR"/>
-            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
-            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+        <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,code,
+        id
+        ,name,code,
         createTime,updateTime
     </sql>
+    <select id="getRoleByCode" resultType="com.f.bilibili.domain.auth.AuthRole">
+        select *
+        from t_auth_role
+        where code = #{code}
+    </select>
 </mapper>
